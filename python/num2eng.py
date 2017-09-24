@@ -44,6 +44,7 @@ dig_dict={
 dig_array = np.array(sorted(dig_dict.keys()), dtype=int)
 
 def num2eng(num, level=0):
+    if num==0: return ''
     ndig = int(np.floor(np.log10(num)))
     assert(ndig<=18)
     if ndig==0:
