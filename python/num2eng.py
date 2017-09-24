@@ -44,11 +44,10 @@ dig_dict={
 dig_array = np.array(sorted(dig_dict.keys()), dtype=int)
 
 def num2eng(num, level=0):
-    if num==0: return ''
-    ndig = int(np.floor(np.log10(num)))
+    ndig = len(str(num))-1
     assert(ndig<=18)
     if ndig==0:
-        return num_dict[num] if num!=0 or level>0 else ''
+        return num_dict[num] if num!=0 or level==0 else ''
     elif ndig==1:
         if num in num_dict:
             return num_dict[num]
@@ -69,4 +68,4 @@ def num2eng(num, level=0):
 if __name__=='__main__':
     n = int(sys.argv[1])
     e = num2eng(n)
-    print n, e
+    print n, ':', e
